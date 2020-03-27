@@ -2,6 +2,10 @@
 
     //Load Config
     require_once 'config/config.php'; 
+    
+    //Helpers
+    require_once 'helpers/helper_url.php';
+    require_once 'helpers/helper_session.php';
 
 
     //Autoload Core Libraries
