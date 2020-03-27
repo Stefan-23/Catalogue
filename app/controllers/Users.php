@@ -54,6 +54,7 @@
                     }
                 }
 
+                //This here is checking if there are no errors and processing the form.
                 if(empty($data['err_name']) && empty($data['err_email']) && empty($data['err_password']) && empty($data['err_confirm_password'])){
                     die('Success');
                 }else{
@@ -79,10 +80,40 @@
             $this->view('users/register', $data);
         }
 
+
+        //login function
         public function login(){
             //Check for post
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                //process form
+                //Sanatize post 
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data = [
+                                      
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'err_email' => '',
+                    'err_password' => '',
+                    
+                ];
+
+                //Validate email
+                if(empty($data['email'])){
+                    $data['err_email'] = 'Please type in your email';
+                }
+
+                //Validate password
+                if(empty($data['password'])){
+                    $data['err_password'] = 'Please type in your password';
+                }
+
+                //This here is checking if there are no errors it process the form.
+                if(empty($data['err_email']) && empty($data['err_password'])){
+                    die('Success');
+                }else{
+                    //Load with errors
+                    $this->view('users/login', $data);
+                }
             }else{
                 $data = [
                     'email' => '',
