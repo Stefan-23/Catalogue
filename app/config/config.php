@@ -11,4 +11,4 @@
     define('URLROOT', 'http://localhost/test/');
 
     //App name
-    define('SITENAME', 'Application');
+    define('SITENAME', 'Catalogue');

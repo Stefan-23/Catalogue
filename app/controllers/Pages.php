@@ -10,7 +10,8 @@
             $posts = $this->postModel->getPosts();
 
             $data = [
-                'title' => 'Welcome',
+                'title' => 'Catalogue',
+                'description' => 'This is app for catalogue build by Stefan. Enjoy :)'
             ];
             $this->view('pages/index', $data);
         }
