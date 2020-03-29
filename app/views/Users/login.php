@@ -19,7 +19,7 @@
                             <span class="invalid-feedback"> <?php echo $data['err_password']; ?> </span>
                     </div> 
 
-                    <div class="row">
+                    <div class="form-group">
                         <div class="col">
                             <input type="submit" value="Login" class= "btn btn-success btn-block">
                         </div>

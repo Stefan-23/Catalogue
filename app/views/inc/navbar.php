@@ -10,6 +10,9 @@
         <a class="nav-link" href="<?php echo URLROOT ?>">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo URLROOT ?>posts/">Comments</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo URLROOT ?>pages/about">About</a>
       </li>
     </ul>
@@ -17,7 +20,7 @@
       <?php if(isset($_SESSION['user_id'])) :  ?>
         
       <li class="nav-item">
-        <a class="nav-link" > <?php echo $_SESSION['user_email']?> </a>
+        <a class="nav-link" > <?php echo $_SESSION['user_name']?> </a>
       </li>
       
       <li class="nav-item">

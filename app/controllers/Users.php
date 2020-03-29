@@ -47,7 +47,7 @@
                 //Validate password
                 if(empty($data['password'])){
                     $data['err_password'] = 'Please type in your password';
-                }elseif(strlen($data['password'] <= 6)){
+                }elseif(strlen($data['password'] < 6)){
                     $data['err_password'] = 'Password must be at least 6 characters long';
                 }
 
@@ -70,7 +70,7 @@
                 //User register
                 if($this->userModel->register($data)){
                     flash('register_success', 'You are registered and ready to log in!');
-                    redirect('users/login');
+                    redirect('posts/index');
                 }else{
                     die('Something went wrong');
                 }
@@ -163,7 +163,7 @@
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
-            redirect('pages/index');
+            redirect('posts/index');
             
         }
 

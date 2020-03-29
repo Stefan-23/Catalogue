@@ -13,7 +13,6 @@
 
 
 <?php foreach($data['posts'] as $post): ?>
-  <?php if($post->approved !== null) : ?>
   <div class="card card-body mb-3"> 
     <h4 class="card-title"><?php echo $post->title; ?> </h4>
     <p class="card-text"><?php echo $post->body; ?></p>
@@ -22,6 +21,10 @@
     </div>
       <a href="<?php echo URLROOT; ?>posts/show/<?php echo $post->postId; ?>" class="btn btn-dark">More</a>
     </div>
-  <?php endif; ?>
 <?php endforeach ?>
+
+
+
+
+
 <?php require APPROOT . '/views/inc/footer.php';?>

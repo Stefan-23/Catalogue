@@ -1,0 +1,62 @@
+@media screen and (min-device-width:698px) {
+  div#showgrid {
+    width: 698px;
+    margin: auto;
+  }
+}
+
+
+
+.row {
+  width: 100%;
+  margin: auto;
+  background: #ffffff;
+
+}
+
+@media (min-device-width: 698px) {
+  .column {
+    width: 230px;
+    height: 230px;
+    display: inline;
+    float: left;
+  }
+}
+
+.column {
+  width: 230px;
+  height: 230px;
+  margin: auto;
+  
+}
+    
+    
+img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 25px;
+}
+.color img{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 1s ease;
+    }
+    
+    .color img:hover{
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 1s ease;
+    }
+    
+.shrink img {
+    transition: 1s ease;
+    }
+      
+    .shrink img:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: 1s ease;
+    }

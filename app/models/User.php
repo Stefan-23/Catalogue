@@ -51,13 +51,19 @@
             }else {
                 return false;
             }
-
-
-
-
         }
 
+        //Get user by ID
+        public function getUserById($id){
 
+            $this->database->query('SELECT * FROM users WHERE id = :id');
+            $this->database->bind(':id', $id);
+
+            $row = $this->database->single();
+            
+            //check row
+            return $row;
+        }
 
 
     }
