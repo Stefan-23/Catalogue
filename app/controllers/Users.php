@@ -158,7 +158,7 @@
             }
             $this->view('users/login', $data);
         }
-
+        //crate session
         public function createSession($user){
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_email'] = $user->email;
@@ -166,7 +166,7 @@
             redirect('posts/index');
             
         }
-
+        //destroy
         public function logout(){
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);

@@ -24,4 +24,13 @@
     </div>
   <?php endif; ?>
 <?php endforeach ?>
+
+
+<?php if($_SESSION['user_id'] == 10) : ?>
+    <div class="col-md-6">
+      <a href="<?php echo URLROOT; ?>posts/admin" class="btn btn-warning pull-left">
+        <i class="fa fa-pencil"></i> Admin
+      </a>
+    </div>
+    <?php endif; ?>
 <?php require APPROOT . '/views/inc/footer.php';?>

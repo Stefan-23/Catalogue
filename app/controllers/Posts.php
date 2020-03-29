@@ -22,7 +22,7 @@
 
             $this->view('posts/index', $data);
         }
-
+        //add function
         public function add(){
             
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -37,7 +37,6 @@
                     'err_body' => '',
                 ];
 
-
                 //Validate data
                 if(empty($data['title'])){
                     $data['err_title'] = 'Please enter title';
@@ -45,8 +44,6 @@
                 if(empty($data['body'])){
                     $data['err_body'] = 'Please enter body text';
                 }
-
-
                 //No errors
                 if(empty($data['err_title']) && empty($data['err_body'])){
                     if($this->postModel->addPost($data)){
@@ -58,7 +55,6 @@
                 }
             }
 
-            
             $data=[
 
                 'posts' => '',
@@ -68,6 +64,7 @@
 
             $this->view('posts/add', $data);
         }
+
         //Takes id param to know which post
         public function edit($id){
             
@@ -84,8 +81,6 @@
                     'err_body' => '',
                     'err_approved' => ''
                 ];
-
-
                 //Validate data
                 if(empty($data['title'])){
                     $data['err_title'] = 'Please enter title';
@@ -93,8 +88,6 @@
                 if(empty($data['body'])){
                     $data['err_body'] = 'Please enter body text';
                 }
-
-
                 //No errors
                 if(empty($data['err_title']) && empty($data['err_body'])){
                     if($this->postModel->editPost($data)){
@@ -107,28 +100,20 @@
             }else{
             //Get model methtod
             $post = $this->postModel->getPostById($id);
-            
-            //Check for owner
-
-           
-
-            
-           $data = [
+        
+            $data = [
                 'id' => $id,
                 'title' => $post->title,
                 'body' => $post->body,
                 'approved' => $post->approved
             ];
-
-
             $this->view('posts/edit', $data);
         }
     }
 
         
-
+        //show fucntion
         public function show($id){
-
             $post = $this->postModel->getPostById($id);
             $user = $this->userModel->getUserById($post->user_id);
             $data = [
@@ -138,16 +123,11 @@
             $this->view('posts/show', $data);
         }
 
+        //delete function
         public function delete($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Get existing post from model
           $post = $this->postModel->getPostById($id);
-          
-          // Check for owner
-          if($post->user_id != $_SESSION['user_id']){
-            redirect('posts');
-          }
-  
           if($this->postModel->deletePost($id)){
             flash('post_message', 'Post Removed');
             redirect('posts');
@@ -159,9 +139,15 @@
         }
       }
 
+      //admin page
       public function admin(){
         $posts = $this->postModel->getPosts();
-        //
+        $user = $this->userModel->getUserById(10);
+        
+        // Check for admin
+        if($_SESSION['user_id'] != 10){
+            redirect('posts');
+        }
         
         $data=[
             'posts' => $posts,
