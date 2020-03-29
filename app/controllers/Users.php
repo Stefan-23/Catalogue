@@ -47,7 +47,7 @@
                 //Validate password
                 if(empty($data['password'])){
                     $data['err_password'] = 'Please type in your password';
-                }elseif(strlen($data['password'] < 6)){
+                }elseif(strlen($data['password']) < 6){
                     $data['err_password'] = 'Password must be at least 6 characters long';
                 }
 
